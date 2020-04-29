@@ -1,0 +1,16 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "receta 1"
+    },
+    {
+      "id": 2,
+      "name": "receta 2"
+    },
+    {
+      "id": 3,
+      "name": "receta 3"
+    }
+  ]
+}

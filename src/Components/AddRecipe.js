@@ -9,8 +9,8 @@ const AddRecipe = (props) => {
     setRecipe({ name: "" });
   };
 
-  const onChangeFunction = (newRecipe) => {
-    setRecipe({ name: newRecipe });
+  const onChangeFunction = (recipeName) => {
+    setRecipe({ name: recipeName });
   };
 
   return (
