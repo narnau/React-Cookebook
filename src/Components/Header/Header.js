@@ -1,5 +1,5 @@
 import React from "react";
-import RecipePageHeader from "./RecipePageHeader";
+import RecipesPageHeader from "./RecipesPageHeader";
 import { Switch } from "react-router-dom";
 import { Route } from "react-router-dom";
 import ManageRecipeHeader from "./ManageRecipeHeader";
@@ -13,7 +13,7 @@ const Header = (props) => {
       >
         <div className="container">
           <Switch>
-            <Route exact path="/" component={RecipePageHeader} />
+            <Route exact path="/" component={RecipesPageHeader} />
             <Route exact path="/addRecipe" component={ManageRecipeHeader} />
           </Switch>
         </div>

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as recipesActions from "../../redux/actions/recipesActions";
 
-const RecipePageHeader = (props) => {
+const RecipesPageHeader = (props) => {
   const onChangeFunction = (filter) => {
     props.actions.setFilter(filter);
   };
@@ -43,4 +43,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipePageHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipesPageHeader);
