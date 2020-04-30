@@ -34,3 +34,7 @@ export function createRecipe(recipe) {
       });
   };
 }
+
+export function setFilter(filter) {
+  return (dispatch) => dispatch({ type: types.SEARCH_RECIPE, filter });
+}

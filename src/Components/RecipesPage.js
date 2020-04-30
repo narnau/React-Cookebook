@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import RecipeList from "./RecipeList";
-import Searcher from "./Searcher";
-import AddRecipe from "./AddRecipe";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as recipesActions from "../redux/actions/recipesActions";
@@ -11,27 +9,13 @@ const RecipesPage = (props) => {
     props.actions.loadRecipes();
   }, []);
 
-  const [queryString, setQueryString] = useState("");
-  const onChangeFunction = (queryString) => {
-    setQueryString(queryString);
-  };
-
-  const onSubmit = (newRecipe) => {
-    props.actions.createRecipe(newRecipe);
-  };
-
-  return (
-    <>
-      <Searcher onChangeFunction={onChangeFunction} />
-      <AddRecipe onSubmit={onSubmit} />
-      <RecipeList queryString={queryString} recipes={props.recipes} />
-    </>
-  );
+  return <RecipeList queryString={props.filter} recipes={props.recipes} />;
 };
 
 function mapStateToProps(state) {
   return {
-    recipes: state.recipes,
+    recipes: state.recipes.list,
+    filter: state.recipes.filter,
   };
 }
 

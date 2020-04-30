@@ -5,12 +5,36 @@
       "name": "receta 1"
     },
     {
-      "id": 2,
-      "name": "receta 2"
+      "name": "receta 2",
+      "id": 2
     },
     {
-      "id": 3,
-      "name": "receta 3"
+      "name": "receta 3",
+      "id": 3
+    },
+    {
+      "name": "receta 4",
+      "id": 4
+    },
+    {
+      "name": "receta 5",
+      "id": 5
+    },
+    {
+      "name": "receta 6",
+      "id": 6
+    },
+    {
+      "name": "receta nueva",
+      "id": 7
+    },
+    {
+      "name": "receta 7",
+      "id": 8
+    },
+    {
+      "name": "receta 8",
+      "id": 9
     }
   ]
 }
