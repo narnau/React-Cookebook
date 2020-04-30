@@ -7,7 +7,7 @@ import * as recipesActions from "../redux/actions/recipesActions";
 const RecipesPage = (props) => {
   useEffect(() => {
     props.actions.loadRecipes();
-  }, []);
+  }, [props.actions]);
 
   return <RecipeList queryString={props.filter} recipes={props.recipes} />;
 };
