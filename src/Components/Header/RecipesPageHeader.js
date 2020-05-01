@@ -12,7 +12,7 @@ const RecipesPageHeader = (props) => {
   return (
     <>
       <Link to="/addRecipe" style={{ color: "white" }}>
-        <span>Add recipe</span>
+        <span>Añadir receta</span>
       </Link>
       <form className="form-inline my-2 my-lg-0">
         <input
@@ -21,6 +21,7 @@ const RecipesPageHeader = (props) => {
           onChange={(event) => {
             onChangeFunction(event.target.value);
           }}
+          value={props.filter}
           placeholder="Search"
           aria-label="Search"
         ></input>

@@ -9,7 +9,25 @@ const RecipesPage = (props) => {
     props.actions.loadRecipes();
   }, [props.actions]);
 
-  return <RecipeList queryString={props.filter} recipes={props.recipes} />;
+  const labelOnClick = (label) => {
+    props.actions.setFilter(label.name);
+  };
+
+  const filterFunction = (recipe) => {
+    let name = recipe.name.toLowerCase().includes(props.filter.toLowerCase());
+    let label = recipe.labels.find((label) =>
+      label.name.toLowerCase().includes(props.filter.toLowerCase())
+    );
+    return name || label;
+  };
+
+  return (
+    <RecipeList
+      recipes={props.recipes}
+      labelOnClick={labelOnClick}
+      filterFunction={filterFunction}
+    />
+  );
 };
 
 function mapStateToProps(state) {
@@ -24,6 +42,7 @@ function mapDispatchToProps(dispatch) {
     actions: {
       loadRecipes: bindActionCreators(recipesActions.loadRecipes, dispatch),
       createRecipe: bindActionCreators(recipesActions.createRecipe, dispatch),
+      setFilter: bindActionCreators(recipesActions.setFilter, dispatch),
     },
   };
 }

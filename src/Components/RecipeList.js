@@ -1,35 +1,40 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const RecipeList = (props) => {
   return (
-    <div>
-      {props.recipes
-        .filter((recipe) => recipe.name.includes(props.queryString))
-        .map((recipe) => (
+    <div className="recipes">
+      {props.recipes.filter(props.filterFunction).map((recipe) => {
+        return (
           <div
             key={recipe.id}
             className="card d-inline-block m-2"
             style={{ width: "18rem" }}
           >
-            <img src="..." className="card-img-top" alt="..."></img>
             <div className="card-body">
               <h5 className="card-title">{recipe.name}</h5>
-              <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </p>
             </div>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">Cras justo odio</li>
-              <li className="list-group-item">Dapibus ac facilisis in</li>
-              <li className="list-group-item">Vestibulum at eros</li>
-            </ul>
+            <div>
+              {recipe.labels.map((label, idx) => {
+                return (
+                  <button
+                    key={idx}
+                    type="button"
+                    className="btn btn-primary btn-sm m-2"
+                    onClick={() => props.labelOnClick(label)}
+                  >
+                    {label.name}
+                  </button>
+                );
+              })}
+            </div>
             <div className="card-body">
-              <a href="#" className="card-link">
+              <Link to={`recipe/${recipe.id}`} className="card-link">
                 Ver receta
-              </a>
+              </Link>
             </div>
           </div>
-        ))}
+        );
+      })}
     </div>
   );
 };

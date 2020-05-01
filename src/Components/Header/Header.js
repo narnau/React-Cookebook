@@ -14,7 +14,10 @@ const Header = (props) => {
         <div className="container">
           <Switch>
             <Route exact path="/" component={RecipesPageHeader} />
-            <Route exact path="/addRecipe" component={ManageRecipeHeader} />
+            <Route
+              path={["/addRecipe", "/recipe/:id"]}
+              component={ManageRecipeHeader}
+            />
           </Switch>
         </div>
       </nav>
