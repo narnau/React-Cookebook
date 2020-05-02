@@ -24,9 +24,14 @@ export default function recipesReducer(state = initialState, action) {
       );
       return newState;
 
-    case types.SEARCH_RECIPE:
+    case types.FILTER_RECIPES:
       newState = Object.assign({}, state, {
         filter: action.filter,
+      });
+      return newState;
+    case types.DELETE_RECIPE_SUCCESS:
+      newState = Object.assign({}, state, {
+        list: state.list.filter((recipe) => recipe.id !== action.recipe.id),
       });
       return newState;
     default:

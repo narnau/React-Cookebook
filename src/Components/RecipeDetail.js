@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { loadRecipes } from "../redux/actions/recipesActions";
+import { loadRecipes, deleteRecipe } from "../redux/actions/recipesActions";
 import { bindActionCreators } from "redux";
 
 const RecipeDetail = (props) => {
@@ -13,6 +13,11 @@ const RecipeDetail = (props) => {
       setRecipe({ ...props.recipe });
     }
   }, [props.recipes, props.recipe, props.actions]);
+
+  let deleteRecipe = () => {
+    props.actions.deleteRecipe(recipe);
+    props.history.push("/");
+  };
 
   return (
     <div className="container">
@@ -42,9 +47,12 @@ const RecipeDetail = (props) => {
             </span>
           ))}
           <div className="pt-2">
-            <a href="#" className="btn btn-danger btn-sm">
-              Eliminar receta
-            </a>
+            <input
+              type="button"
+              onClick={deleteRecipe}
+              className="btn btn-danger btn-sm"
+              value="Eliminar receta"
+            ></input>
           </div>
         </div>
       </div>
@@ -84,6 +92,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       loadRecipes: bindActionCreators(loadRecipes, dispatch),
+      deleteRecipe: bindActionCreators(deleteRecipe, dispatch),
     },
   };
 }

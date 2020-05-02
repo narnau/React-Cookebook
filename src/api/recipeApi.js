@@ -16,3 +16,9 @@ export function saveRecipe(recipe) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function deleteRecipe(recipeId) {
+  return fetch(baseUrl + recipeId, { method: "DELETE" })
+    .then(handleResponse)
+    .catch(handleError);
+}

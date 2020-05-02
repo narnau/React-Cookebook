@@ -9,6 +9,10 @@ export function createRecipeSuccess(recipe) {
   return { type: types.CREATE_RECIPE_SUCCESS, recipe };
 }
 
+export function deleteRecipesSuccess(recipe) {
+  return { type: types.DELETE_RECIPE_SUCCESS, recipe };
+}
+
 export function loadRecipes() {
   return function (dispatch) {
     return recipeApi
@@ -36,5 +40,13 @@ export function createRecipe(recipe) {
 }
 
 export function setFilter(filter) {
-  return (dispatch) => dispatch({ type: types.SEARCH_RECIPE, filter });
+  return (dispatch) => dispatch({ type: types.FILTER_RECIPES, filter });
+}
+
+export function deleteRecipe(recipe) {
+  return function (dispatch) {
+    return recipeApi.deleteRecipe(recipe.id).then(() => {
+      dispatch(deleteRecipesSuccess(recipe));
+    });
+  };
 }
