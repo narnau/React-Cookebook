@@ -26,9 +26,7 @@ const RecipeDetail = (props) => {
           <h3>{recipe.name}</h3>
         </div>
         <div className="card-body">
-          <h5 className="card-title">
-            Ingredientes para {recipe.persons} personas
-          </h5>
+          <h5 className="card-title">Ingredientes para {recipe.persons}</h5>
           <ul>
             {recipe.ingredients.map((ingredient, idx) => (
               <li key={idx}>

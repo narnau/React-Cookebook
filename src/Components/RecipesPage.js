@@ -6,8 +6,8 @@ import * as recipesActions from "../redux/actions/recipesActions";
 
 const RecipesPage = (props) => {
   useEffect(() => {
-    props.actions.loadRecipes();
-  }, [props.actions]);
+    if (props.recipes.length === 0) props.actions.loadRecipes();
+  }, [props.actions, props.recipes.length]);
 
   const labelOnClick = (label) => {
     props.actions.setFilter(label.name);

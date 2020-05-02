@@ -13,7 +13,15 @@ export default function recipesReducer(state = initialState, action) {
         }
       );
       return newState;
-
+    case types.EDIT_RECIPE_SUCCESS:
+      newState = Object.assign(
+        {},
+        {
+          filter: state.filter,
+          list: [...state.list, { ...action.recipe }],
+        }
+      );
+      return newState;
     case types.LOAD_RECIPES_SUCCESS:
       newState = Object.assign(
         {},

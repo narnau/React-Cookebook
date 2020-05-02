@@ -9,6 +9,10 @@ export function createRecipeSuccess(recipe) {
   return { type: types.CREATE_RECIPE_SUCCESS, recipe };
 }
 
+export function editRecipeSuccess(recipe) {
+  return { type: types.EDIT_RECIPE_SUCCESS, recipe };
+}
+
 export function deleteRecipesSuccess(recipe) {
   return { type: types.DELETE_RECIPE_SUCCESS, recipe };
 }
@@ -32,6 +36,19 @@ export function createRecipe(recipe) {
       .saveRecipe(recipe)
       .then((recipe) => {
         dispatch(createRecipeSuccess(recipe));
+      })
+      .catch((error) => {
+        throw error;
+      });
+  };
+}
+
+export function editRecipe(recipe) {
+  return function (dispatch) {
+    return recipeApi
+      .saveRecipe(recipe)
+      .then((recipe) => {
+        dispatch(editRecipeSuccess(recipe));
       })
       .catch((error) => {
         throw error;

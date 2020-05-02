@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as recipesActions from "../../redux/actions/recipesActions";
+import { setFilter } from "../../redux/actions/recipesActions";
 
 const RecipesPageHeader = (props) => {
   const onChangeFunction = (filter) => {
-    props.actions.setFilter(filter);
+    props.setFilter(filter);
   };
 
   return (
@@ -36,12 +35,8 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      setFilter: bindActionCreators(recipesActions.setFilter, dispatch),
-    },
-  };
-}
+const mapDispatchToProps = {
+  setFilter,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(RecipesPageHeader);
