@@ -4,6 +4,8 @@ This is a Cook eBook Web App created with [React](https://github.com/facebook/re
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+<img width="1280" alt="React-CookeBook" src="https://user-images.githubusercontent.com/6671685/80870099-945efe00-8ca4-11ea-85d0-c0ea9ad11862.png">
+
 ## Available Scripts
 
 In the project directory, you can run:
